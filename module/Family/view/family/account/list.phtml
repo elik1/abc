@@ -1,0 +1,25 @@
+<?php
+ $title = 'Families';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+  
+ <table class="table">
+ <tr>
+     <th>Name</th>
+     <th>Phone</th>
+	 <th>Address</th>
+	 <th>Family ID</th>
+ </tr>
+ <?php foreach ($families as $family) : ?>
+ <tr>
+     <td><?php echo $this->escapeHtml($family->name);?></td>
+	 <td><?php echo $this->escapeHtml($family->phone);?></td>
+     <td><?php echo $this->escapeHtml($family->address);?></td>
+	 <td><?php echo $this->escapeHtml($family->familyId);?></td>
+	 <td><a href="<?= $this->url('family/default', array('controller'=> 'account', 'action'=>'edit', 'id'=> $family['id'])) ?>"><?= $this->translate('Edit') ?></a></td>
+     <td><a href="<?= $this->url('family/default', array('controller'=> 'transaction', 'action'=>'add', 'id'=> $family['familyId'])) ?>"><?= $this->translate('Add Transaction') ?></a></td>
+	 <td><a href="<?= $this->url('family/default', array('controller'=> 'transaction', 'action'=>'list', 'id'=> $family['familyId'])) ?>"><?= $this->translate('View Transactions') ?></a></td>
+ </tr>
+ <?php endforeach; ?>
+ </table>

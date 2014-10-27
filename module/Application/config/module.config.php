@@ -8,6 +8,9 @@
  */
 
 return array(
+	'school' => array (
+        'name' 	  => 'ABC School',
+    ),
     'router' => array(
         'routes' => array(
             'home' => array(
@@ -53,6 +56,10 @@ return array(
         ),
     ),
     'service_manager' => array(
+		'factories' => array(
+           // 'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
+            'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+        ),
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
@@ -98,5 +105,8 @@ return array(
             'routes' => array(
             ),
         ),
+    ),
+	'navigation' => array(
+         
     ),
 );

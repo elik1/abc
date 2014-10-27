@@ -1,0 +1,28 @@
+<?php
+ $title = 'Transactions';
+ $this->headTitle($title);
+ $balance = 0;
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+  
+ <table class="table">
+ <tr>
+     <th>Date</th>
+     <th>Amount</th>
+	 <th>Type</th>
+	 <th>Balance</th>
+ </tr>
+ <?php foreach ($transactions as $transaction) : 
+	$balance+= $transaction->amount;
+ ?>
+  
+ <tr>
+     <td><?php echo $this->escapeHtml($transaction->date);?></td>
+	 <td><?php echo $this->escapeHtml($transaction->amount);?></td>
+     <td><?php echo $this->escapeHtml($transaction->type);?></td>
+	 <td><?php echo '$' . $balance ?></td>
+ </tr>
+ <?php endforeach; ?>
+ 
+ </table>
+ 

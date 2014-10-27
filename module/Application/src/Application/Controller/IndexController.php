@@ -16,6 +16,10 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+        $serviceLocator = $this->getServiceLocator();
+        $config = $serviceLocator->get('config');
+        return array(
+                    'schoolName' => $config['school']['name']
+                );
     }
 }

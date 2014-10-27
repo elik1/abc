@@ -1,0 +1,40 @@
+<?php 
+ 
+$title = 'Add new family';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$this->form1->prepare();
+
+echo $this->form()->openTag($this->form1);
+echo '<fieldset>';
+
+foreach($this->form1 as $element) {
+	if(!($element instanceof Zend\Form\Element\Submit)) {
+?>
+    <div>
+	    <label  for="<?= $element->getName() ?>"><?=  $element->getLabel() ?></label>
+	    <div>
+            <?= $this->formElement($element) ?>
+            <?= $this->formElementErrors($element)?>
+	    </div>
+	</div>
+<?php 	
+	}
+	else {
+        $element->setAttribute('class', 'btn btn-primary');
+?>
+    <div>
+<?= 
+        $this->formelement($element) 
+?>
+    </div>
+<?php 		
+
+	}
+}
+
+echo '</fieldset>';
+echo $this->form()->closeTag();
+?>
